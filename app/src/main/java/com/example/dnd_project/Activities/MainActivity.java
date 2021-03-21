@@ -44,7 +44,7 @@ import java.util.List;
  * Allow to see the spell list
  */
 public class MainActivity extends AppCompatActivity {
-    Button mySpellButton;
+    Button profilePicButton;
     RecyclerView rvSpells;
     TextView spellCountText;
     EditText searchNameBar;
@@ -88,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
         getSpellListFromApi();
 
         // Set up the image button to get a picture from storage
-        mySpellButton = findViewById(R.id.mySpellButton);
-        mySpellButton.setOnClickListener(new View.OnClickListener() {
+        profilePicButton = findViewById(R.id.profilePicButton);
+        profilePicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Pick a picture from storage

@@ -38,16 +38,10 @@
             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
         <Button
-            android:id="@+id/allSpellButton"
+            android:id="@+id/profilePicButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/allSpellButton" />
-
-        <Button
-            android:id="@+id/mySpellButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="image" />
+            android:text="@string/profilePicButton" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
