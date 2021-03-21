@@ -12,7 +12,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -37,8 +36,6 @@ import com.example.dnd_project.Models.SpellSimple;
 
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
     String charClass, nameSearch;
 
-    MySpellList profil;
+    MySpellList profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,12 +78,7 @@ public class MainActivity extends AppCompatActivity {
         rvSpells.setLayoutManager(new LinearLayoutManager(this));
 
         getPermissionFromUser();
-        profil = load("profilePic.data");
-        if (profil == null) {
-            profil = new MySpellList();
-        } else {
-            myProfilePicture.setImageBitmap(profil.getProfilePicture());
-        }
+        loadMySpellList();
 
         // Set up the research filters
         setUpSpinner();
@@ -183,33 +175,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     *
+     * Use the info (picture Uri) from the image selection
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK) {
+            // Get the path of the picture
             Uri targetUri = data.getData();
             String textTargetUri = targetUri.toString();
             Log.i("Load Picture", textTargetUri);
+            // Load the picture
             Bitmap bmp = loadPicture(targetUri);
 
-            profil.setProfilePicture(bmp);
+            profile.setProfilePicture(bmp);
             save();
         }
     }
 
-    private void save() {
-        FileManager fm = new FileManager();
-        fm.serialize(profil, "profilePic.data", getApplicationContext());
-    }
-
-    private MySpellList load(String filename) {
-        FileManager fm = new FileManager();
-        return fm.deserialize(filename, getApplicationContext());
-    }
-
+    /**
+     * @param targetUri a picture path
+     * @return the picture as a Bitmap and update GUI
+     */
     private Bitmap loadPicture(Uri targetUri) {
         Bitmap bitmap = null;
         try {
@@ -221,6 +209,38 @@ public class MainActivity extends AppCompatActivity {
         return bitmap;
     }
 
+    /**
+     * //TODO Load and display a user profile
+     * If it doesn't exist, create a blank new one
+     */
+    private void loadMySpellList() {
+        profile = load("profilePic.data");
+        if (profile == null) {
+            profile = new MySpellList();
+        } else {
+            myProfilePicture.setImageBitmap(profile.getProfilePicture());
+        }
+    }
+
+    /**
+     * //TODO save profile
+     */
+    private void save() {
+        FileManager fm = new FileManager();
+        fm.serialize(profile, "profilePic.data", getApplicationContext());
+    }
+
+    /**
+     * //TODO load profile
+     */
+    private MySpellList load(String filename) {
+        FileManager fm = new FileManager();
+        return fm.deserialize(filename, getApplicationContext());
+    }
+
+    /**
+     * Ask user for permission if not granted
+     */
     private void getPermissionFromUser() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(this, Manifest.permission.MANAGE_DOCUMENTS) != PackageManager.PERMISSION_GRANTED) {
