@@ -26,6 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.dnd_project.AsyncTasks.AsyncJSONClassListData;
 import com.example.dnd_project.AsyncTasks.AsyncJSONSpellListData;
 import com.example.dnd_project.Constants;
 import com.example.dnd_project.FileManager;
@@ -130,18 +131,15 @@ public class MainActivity extends AppCompatActivity {
     private void setUpSpinner() {
         charClass = "";
 
+        // Load the classes from the API with an adapter
         ArrayList<String> classArray = new ArrayList<>();
-        classArray.add("all");
-        classArray.add("cleric");
-        classArray.add("druid");
-        classArray.add("paladin");
-        classArray.add("wizard");
-        classArray.add("warlock");
         ArrayAdapter<String> classAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, classArray);
+        AsyncJSONClassListData asyncJSONClassListData = (AsyncJSONClassListData) new AsyncJSONClassListData(classAdapter).execute(Constants.API_ADDRESS + "classes/");
 
+        // Link the adapter and the spinner
         classSpinner.setAdapter(classAdapter);
         classSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
+            // Add behaviors on selection
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (classSpinner.getAdapter().getItem(position).equals("all")) {
