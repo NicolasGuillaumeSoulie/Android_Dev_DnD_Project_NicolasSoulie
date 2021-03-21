@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -21,6 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     SpellAdapter spellAdapter;
     ImageView myProfilePicture;
     Spinner classSpinner;
+    LinearLayout layoutNameSearch;
 
     String charClass, nameSearch;
 
@@ -68,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         myProfilePicture = (ImageView) findViewById(R.id.myProfilePicture);
         rvSpells = findViewById(R.id.rvSpells);
         spellCountText = findViewById(R.id.spellCountText);
+        layoutNameSearch = (LinearLayout) findViewById(R.id.layoutNameSearch);
 
         // Set up the adapter
         spellList = new ArrayList<SpellSimple>();
@@ -142,8 +146,14 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (classSpinner.getAdapter().getItem(position).equals("all")) {
                     charClass = "";
+                    // Show search by name (in case it was hidden)
+                    layoutNameSearch.setVisibility(View.VISIBLE);
                 } else {
                     charClass = "classes/" + classSpinner.getAdapter().getItem(position) + "/";
+                    // Hide search by name (not support by API with class)
+                    layoutNameSearch.setVisibility(View.GONE);
+                    nameSearch = "";
+                    searchNameBar.setText("");
                 }
                 getSpellListFromApi();
             }
