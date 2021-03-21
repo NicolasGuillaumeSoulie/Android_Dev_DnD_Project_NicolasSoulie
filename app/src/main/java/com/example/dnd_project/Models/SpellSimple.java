@@ -1,6 +1,10 @@
 package com.example.dnd_project.Models;
 
-public class SpellSimple implements java.io.Serializable{
+/**
+ * The most basic info about a spell.
+ * Used for the spell lists.
+ */
+public class SpellSimple implements java.io.Serializable {
     protected String spellIndex;
     protected String spellName;
 

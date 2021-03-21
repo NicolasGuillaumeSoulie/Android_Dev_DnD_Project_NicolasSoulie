@@ -39,6 +39,10 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The main activity.
+ * Allow to see the spell list
+ */
 public class MainActivity extends AppCompatActivity {
     Button mySpellButton;
     RecyclerView rvSpells;
@@ -58,13 +62,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Bind the views to attributes
         classSpinner = (Spinner) findViewById(R.id.classSpinner);
         searchNameBar = (EditText) findViewById(R.id.searchNameBar);
         myProfilePicture = (ImageView) findViewById(R.id.myProfilePicture);
         rvSpells = findViewById(R.id.rvSpells);
         spellCountText = findViewById(R.id.spellCountText);
-        spellList = new ArrayList<SpellSimple>();
 
+        // Set up the adapter
+        spellList = new ArrayList<SpellSimple>();
         spellAdapter = new SpellAdapter(spellList);
         rvSpells.setAdapter(spellAdapter);
         rvSpells.setLayoutManager(new LinearLayoutManager(this));
@@ -73,21 +79,23 @@ public class MainActivity extends AppCompatActivity {
         profil = load("profilePic.data");
         if (profil == null) {
             profil = new MySpellList();
-        }
-        else {
+        } else {
             myProfilePicture.setImageBitmap(profil.getProfilePicture());
         }
 
+        // Set up the research filters
         setUpSpinner();
         setUpSearchBar();
+
+        // Get a first spell list without filters
         getSpellListFromApi();
 
+        // Set up the image button to get a picture from storage
         mySpellButton = findViewById(R.id.mySpellButton);
         mySpellButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start a new SpellActvity
-                // startActivity(new Intent(MainActivity.this, SpellActivity.class));
+                // Pick a picture from storage
                 Intent intent = new Intent(Intent.ACTION_PICK,
                         android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intent, 0);
@@ -97,6 +105,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Send a request to the API for a spell list (AsyncTask)
+     */
     private void getSpellListFromApi() {
         // Get the list of spell from the API
         AsyncJSONSpellListData asyncJSONSpellListData = (AsyncJSONSpellListData) new AsyncJSONSpellListData(spellAdapter) {
@@ -109,6 +120,9 @@ public class MainActivity extends AppCompatActivity {
         }.execute(Constants.API_ADDRESS + charClass + "spells/" + nameSearch);
     }
 
+    /**
+     * Set up the spinner filter to select spells by character class
+     */
     private void setUpSpinner() {
         charClass = "";
 
@@ -140,6 +154,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Set up the search bar
+     */
     private void setUpSearchBar() {
         nameSearch = "";
 

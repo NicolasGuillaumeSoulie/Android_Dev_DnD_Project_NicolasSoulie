@@ -13,9 +13,16 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
+/**
+ * A class dedicated to saving & loading files
+ */
 public class FileManager {
     String defaultFilename = "myCharSpellSheets.spells";
-    public void serialize(MySpellList ob, String filename, Context context){
+
+    /**
+     * Save to file
+     */
+    public void serialize(MySpellList ob, String filename, Context context) {
         try {
             FileOutputStream fileOut = context.openFileOutput(filename, Context.MODE_PRIVATE);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -27,7 +34,10 @@ public class FileManager {
         }
     }
 
-    public MySpellList deserialize(String filename, Context context){
+    /**
+     * Load from file
+     */
+    public MySpellList deserialize(String filename, Context context) {
         MySpellList myCharSpellSheets = null;
         try {
             FileInputStream fileIn = context.openFileInput(filename);

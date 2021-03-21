@@ -14,6 +14,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * An AsyncTask to retrieve JSON info
+ */
 public class AsyncJSONData extends AsyncTask<String, Void, JSONObject> {
     final String TAG = "AsyncJSONData";
 

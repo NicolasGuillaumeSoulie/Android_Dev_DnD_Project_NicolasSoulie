@@ -4,6 +4,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * A more detailed representation of a spell.
+ */
 public class Spell extends SpellSimple {
 
     String spellLevel;
@@ -19,9 +22,15 @@ public class Spell extends SpellSimple {
     boolean spellRitual;
 
     public Spell(String name, String index) {
-        super(name,index);
+        super(name, index);
     }
 
+    /**
+     * A constructor meant to convert a spell in JSON to a Spell Object
+     *
+     * @param jsonSpell
+     * @throws JSONException
+     */
     public Spell(JSONObject jsonSpell) throws JSONException {
         spellIndex = jsonSpell.getString("index");
         spellName = jsonSpell.getString("name");

@@ -9,23 +9,32 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * An AsyncTask to retrieve JSON info for a list of spells
+ */
 public class AsyncJSONSpellListData extends AsyncJSONData {
+    // The adapter who will receive the spells recovered from the API
     SpellAdapter spellAdapter;
 
-    public AsyncJSONSpellListData(SpellAdapter adapter){
+    public AsyncJSONSpellListData(SpellAdapter adapter) {
         spellAdapter = adapter;
     }
 
+    /**
+     * @param strings a list of url
+     * @return the JSON answer of the first url
+     * Work as AsyncJSONData but add a step to save spells in the adapter
+     */
     @Override
     protected JSONObject doInBackground(String... strings) {
         JSONObject result = super.doInBackground(strings);
         try {
             JSONArray spellListJSON = result.getJSONArray("results");
             spellAdapter.clear();
-            for(int i = 0; i<spellListJSON.length();i++){
+            for (int i = 0; i < spellListJSON.length(); i++) {
                 String name = spellListJSON.getJSONObject(i).getString("name");
                 String index = spellListJSON.getJSONObject(i).getString("index");
-                SpellSimple spell = new SpellSimple(name,index);
+                SpellSimple spell = new SpellSimple(name, index);
                 // Log.i("Load spell list: ", spell.toString());
                 spellAdapter.add(spell);
             }
@@ -35,6 +44,11 @@ public class AsyncJSONSpellListData extends AsyncJSONData {
         return result;
     }
 
+    /**
+     * Notify the adapter of the changes when it is over
+     *
+     * @param result the JSON answer
+     */
     @Override
     protected void onPostExecute(JSONObject result) {
         spellAdapter.notifyDataSetChanged();
