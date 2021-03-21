@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">DnD spell Sheet</string>
+    <string name="allSpellButton">All Spells</string>
+    <string name="mySpellButton">My Spells</string>
+    <string name="spellDetailsButton">Details</string>
+    <string name="spellAddButton">Add</string>
+
+    <string name="levelLabel">Level:</string>
+    <string name="rangeLabel">Range:</string>
+    <string name="castingLabel">Casting time:</string>
+    <string name="materialLabel">Material Compounds:</string>
+    <string name="durationLabel">Duration:</string>
+    <string name="componentLabel">Components:</string>
+    <string name="descLabel">Description:</string>
+    <string name="highLevelLabel">High-level effects:</string>
+    <string name="ritualLabel">Ritual:</string>
+    <string name="concentrationLabel">Concentration:</string>
+    <string name="classSpinnerLabel">Class:</string>
+    <string name="searchNameLabel">Search:</string>
+    <string name="searchNameHint">Search spell by name</string>
+
+    <string name="welcomeTitle">Welcome to DnD spell Sheet</string>
+    <string name="welcomeText">Hello adventurer. Here you can find all the spell you need for your DnD campaigns.
+        Build your own lists for your characters and check the spells descriptions with the tip of your fingers.
+        Who need a heavy grimoire when you can have an interactive list?</string>
+</resources>

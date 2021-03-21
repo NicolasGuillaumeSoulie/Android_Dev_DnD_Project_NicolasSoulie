@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/durationLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/durationLabel"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/spellName"
+            app:layout_constraintTop_toBottomOf="@+id/rangeLabel" />
+
+        <TextView
+            android:id="@+id/rangeLabel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/componentLabel"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/spellDuration"
+            app:layout_constraintTop_toTopOf="@+id/durationLabel" />
+
+        <TextView
+            android:id="@+id/levelLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/levelLabel"
+            app:layout_constraintStart_toEndOf="@+id/spellName"
+            app:layout_constraintTop_toTopOf="@+id/spellName" />
+
+        <TextView
+            android:id="@+id/spellMaterial"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Material"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialLabel" />
+
+        <TextView
+            android:id="@+id/spellDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descLabel" />
+
+        <TextView
+            android:id="@+id/rangeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/rangeLabel"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/spellName"
+            app:layout_constraintTop_toBottomOf="@+id/spellName" />
+
+        <TextView
+            android:id="@+id/descLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/descLabel"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/spellName"
+            app:layout_constraintTop_toBottomOf="@+id/spellMaterial" />
+
+        <TextView
+            android:id="@+id/spellHighLevel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/highLevelLabel" />
+
+        <TextView
+            android:id="@+id/ritualLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/ritualLabel"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/spellConcetration"
+            app:layout_constraintTop_toTopOf="@+id/concentrationLabel" />
+
+        <CheckBox
+            android:id="@+id/spellRitual"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:clickable="false"
+            app:layout_constraintBottom_toBottomOf="@+id/ritualLabel"
+            app:layout_constraintStart_toEndOf="@+id/ritualLabel"
+            app:layout_constraintTop_toTopOf="@+id/ritualLabel" />
+
+        <TextView
+            android:id="@+id/concentrationLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/concentrationLabel"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/spellName"
+            app:layout_constraintTop_toBottomOf="@+id/durationLabel" />
+
+        <TextView
+            android:id="@+id/spellComponent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Component"
+            app:layout_constraintStart_toEndOf="@+id/rangeLabel2"
+            app:layout_constraintTop_toTopOf="@+id/rangeLabel2" />
+
+        <TextView
+            android:id="@+id/spellName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Name"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/spellSchool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="School"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/materialLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/materialLabel"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/spellName"
+            app:layout_constraintTop_toBottomOf="@+id/concentrationLabel" />
+
+        <TextView
+            android:id="@+id/castingLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/castingLabel"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/spellRange"
+            app:layout_constraintTop_toTopOf="@+id/rangeLabel" />
+
+        <TextView
+            android:id="@+id/spellLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Level"
+            app:layout_constraintStart_toEndOf="@+id/levelLabel"
+            app:layout_constraintTop_toTopOf="@+id/levelLabel" />
+
+        <TextView
+            android:id="@+id/highLevelLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/highLevelLabel"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/spellName"
+            app:layout_constraintTop_toBottomOf="@+id/spellDesc" />
+
+        <CheckBox
+            android:id="@+id/spellConcetration"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:clickable="false"
+            app:layout_constraintBottom_toBottomOf="@+id/concentrationLabel"
+            app:layout_constraintStart_toEndOf="@+id/concentrationLabel"
+            app:layout_constraintTop_toTopOf="@+id/concentrationLabel" />
+
+        <TextView
+            android:id="@+id/spellDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Duration"
+            app:layout_constraintStart_toEndOf="@+id/durationLabel"
+            app:layout_constraintTop_toTopOf="@+id/durationLabel" />
+
+        <TextView
+            android:id="@+id/spellRange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Range"
+            app:layout_constraintStart_toEndOf="@+id/rangeLabel"
+            app:layout_constraintTop_toTopOf="@+id/rangeLabel" />
+
+        <TextView
+            android:id="@+id/spellCasting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="CastingTime"
+            app:layout_constraintStart_toEndOf="@+id/castingLabel"
+            app:layout_constraintTop_toTopOf="@+id/castingLabel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
