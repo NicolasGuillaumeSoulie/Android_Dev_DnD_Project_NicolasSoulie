@@ -14,7 +14,7 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 
 /**
- * A class dedicated to saving & loading files
+ * //TODO A class dedicated to saving & loading files
  */
 public class FileManager {
     String defaultFilename = "myCharSpellSheets.spells";

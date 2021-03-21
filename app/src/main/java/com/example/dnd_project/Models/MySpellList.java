@@ -6,6 +6,9 @@ import android.net.Uri;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * //TODO A class to save user profile
+ */
 public class MySpellList implements java.io.Serializable{
     String name, charClass;
     Bitmap profilePicture;

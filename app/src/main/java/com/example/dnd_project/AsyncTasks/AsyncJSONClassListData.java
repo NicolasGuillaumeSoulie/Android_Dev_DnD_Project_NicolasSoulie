@@ -9,6 +9,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * An AsyncTask to retrieve JSON info for the list of character classes
+ */
 public class AsyncJSONClassListData extends AsyncJSONData {
     // The adapter who will receive the spells recovered from the API
     ArrayAdapter<String> classAdapter;
@@ -31,7 +34,7 @@ public class AsyncJSONClassListData extends AsyncJSONData {
             classAdapter.add("all");
             for (int i = 0; i < spellListJSON.length(); i++) {
                 String name = spellListJSON.getJSONObject(i).getString("index");
-                // Log.i("Load spell list: ", spell.toString());
+                // Log.i("Load class list: ", spell.toString());
                 classAdapter.add(name);
             }
         } catch (JSONException e) {
